@@ -1,0 +1,56 @@
+<!doctype html>
+<html ng-app="myApp">
+	<head>
+		<title>List auto generated users</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" style="text/css">
+		
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    	<script src="js/app.js"></script>
+		<script src="js/hello.js"></script>
+    	<script src="js/users.js"></script> 
+	</head>
+
+	<body >
+	<div class="container">
+	<div ng-controller="HelloCtrl">
+		Your name is: <input type="text" ng-model="name"> 
+		<button ng-click="update()" ng-enter="update()" class="btn btn-success">update</button>
+		<h3>Response from server:</h3>
+		<p>The ID is {{greeting.id}}</p> 
+		<p>The content is {{greeting.content}}</p>
+	</div>
+	</div>
+	
+	<div ng-controller="UsersCtrl" class="container">
+		<h4>Enter the number of users:</h4>
+		<input ng-model="number"> 
+		<h3>Response from server:</h3>
+		<button ng-click="regenerateUsers()" ng-enter="regenerateUsers()" class="btn btn-danger">Get new list of users</button>
+		
+		<div data-description="data table">
+				<h4>
+				List of users retrieved:
+				</h4>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<td>ID</td>
+							<td>Name</td>
+							<td>Age</td>
+							<td>Gender</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="user in users">
+							<td>{{user.id}}</td>
+							<td>{{user.name}}</td>
+							<td>{{user.age}}</td>
+							<td>{{user.gender}}</td>
+						</tr>
+					</tbody>
+				</table>
+		</div>
+	</div>
+</body>
+</html>
+
